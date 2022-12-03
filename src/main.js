@@ -1,11 +1,19 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
+import { createApp } from "vue";
+import { Icon } from "@iconify/vue";
 
-import './assets/main.css'
+import App from "./App.vue";
+import BaseDemo from "./components/common/BaseDemo.vue";
+import RadioGroup from "./components/common/RadioGroup.vue";
 
-const app = createApp(App)
+import router from "./router";
 
-app.use(router)
+import "./assets/main.css";
 
-app.mount('#app')
+const app = createApp(App);
+
+app.use(router);
+app.component("Icon", Icon);
+app.component("BaseDemo", BaseDemo);
+app.component("RadioGroup", RadioGroup);
+
+app.mount("#app");
