@@ -30,7 +30,6 @@
                     class="p-2 bg-gray-800 rounded"
                     v-for="(id, index) in items"
                     :key="index"
-                    :prop="selectedProp"
                     :id="id"
                 >
                     <Opti v-if="isOptimized" :prop="selectedProp" :id="id"></Opti>
