@@ -1,6 +1,6 @@
 <template>
     <BaseDemo title="Heavy Computed">
-        <template #default="{ isOptimized }">
+        <template #description>
             <p>
                 When a computed or any other effects are costly to create or recalculate, but are use by several
                 components, it can be usefull to share it between them
@@ -18,6 +18,8 @@
                 we can feel the application is laggy. This lag dissappears in the optimized version which use common ref
             </p>
             <p>You can find the code to this demo <a class="externalLink" href="">here</a></p>
+        </template>
+        <template #default="{ isOptimized }">
             <RadioGroup
                 v-model="selectedProp"
                 :options="[
@@ -25,7 +27,7 @@
                     { label: 'Color', value: 'color' },
                 ]"
             ></RadioGroup>
-            <ul class="grid grid-cols-3 gap-2 overflow-auto max-h-[300px] mt-4">
+            <ul class="grid grid-cols-3 gap-2 overflow-auto max-h-[300px] mt-4 nice-scroll">
                 <li
                     class="p-2 bg-gray-800 rounded"
                     v-for="(id, index) in items"

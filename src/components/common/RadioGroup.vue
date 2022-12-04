@@ -1,11 +1,11 @@
 <template>
-    <div role="radiogroup" class="flex mt-4 space-x-4">
+    <div role="radiogroup" class="flex mt-4">
         <div
             v-for="option in options"
             :key="option.value"
             @click="$emit('update:modelValue', option.value)"
-            class="p-2 transition-colors rounded cursor-pointer"
-            :class="modelValue === option.value ? ['bg-gray-700'] : []"
+            class="px-3 py-2 transition-colors cursor-pointer"
+            :class="[modelValue === option.value ? 'bg-gray-700' : '', header ? 'rounded-t' : 'rounded']"
             role="radio"
         >
             {{ option.label }}
@@ -15,7 +15,11 @@
 
 <script>
 export default {
-    props: { options: { type: Array, required: true }, modelValue: { type: [String, Number], required: true } },
+    props: {
+        options: { type: Array, required: true },
+        modelValue: { type: [String, Number], required: true },
+        header: { type: Boolean, default: false },
+    },
     emits: ["update:modelValue"],
 };
 </script>
