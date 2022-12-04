@@ -20,11 +20,15 @@ const CONFIGURATION = {
 };
 
 export function useConfigurationByProp(id, prop) {
+    // Articial heavy computed
+    // Here in a "normal" usecase, this can be a heavy computed to recalculate on change,
+    // or just a lot of them to be created (in my "real" case, event the simple creation of it was heavy)
     return computed(() => {
         let i = 0;
         while (i < 3000000) {
             i++;
         }
+        console.log(i); // this line is here just so that minifier in production to do not delete the artificial slow loop
         return CONFIGURATION[id][prop.value];
     });
 }
