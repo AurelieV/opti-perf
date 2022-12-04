@@ -3,15 +3,18 @@
 </template>
 
 <script>
-import { toRef } from "vue";
-import { useConfigurationByProp } from "./store.js";
+import { onUpdated, toRef } from 'vue'
+import { useConfigurationByProp } from './store.js'
 
 export default {
     props: { id: { type: String }, prop: { type: String } },
-    setup(props) {
+    emits: ['updated'],
+    setup(props, ctx) {
+        onUpdated(() => ctx.emit('updated', new Date()))
+
         return {
-            value: useConfigurationByProp(props.id, toRef(props, "prop")),
-        };
+            value: useConfigurationByProp(props.id, toRef(props, 'prop')),
+        }
     },
-};
+}
 </script>

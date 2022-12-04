@@ -7,7 +7,7 @@
             </p>
             <p>
                 <a class="externalLink" href="https://vuejs.org/api/reactivity-advanced.html#effectscope"
-                    >effectScope</a
+                >effectScope</a
                 >
                 is very usefull to create all the needed effects only when needed, and then release it when not needed
                 anymore (important for memory leak !)
@@ -20,11 +20,15 @@
             <p>You can find the code to this demo <a class="externalLink" href="">here</a></p>
             <RadioGroup
                 v-model="selectedProp"
+                @click="timerStart = new Date()"
                 :options="[
                     { label: 'Name', value: 'name' },
                     { label: 'Color', value: 'color' },
                 ]"
             ></RadioGroup>
+            <p class="my-4">
+                Completed in <span class="text-orange-500">{{ timeElapsed }}</span> ms
+            </p>
             <ul class="grid grid-cols-3 gap-2 overflow-auto max-h-[300px] mt-4">
                 <li
                     class="p-2 bg-gray-800 rounded"
@@ -32,8 +36,8 @@
                     :key="index"
                     :id="id"
                 >
-                    <Opti v-if="isOptimized" :prop="selectedProp" :id="id"></Opti>
-                    <NonOpti v-else :prop="selectedProp" :id="id"></NonOpti>
+                    <Opti v-if="isOptimized" :prop="selectedProp" :id="id" @updated="updateTimer(new Date())"></Opti>
+                    <NonOpti v-else :prop="selectedProp" :id="id" @updated="updateTimer(new Date())"></NonOpti>
                 </li>
             </ul>
         </template>
@@ -41,21 +45,33 @@
 </template>
 
 <script>
-import { ref } from "vue";
-import RadioGroup from "../components/common/RadioGroup.vue";
-import NonOpti from "../components/heavy-computed/NonOpti.vue";
-import Opti from "../components/heavy-computed/Opti.vue";
+import { ref } from 'vue'
+import RadioGroup from '../components/common/RadioGroup.vue'
+import NonOpti from '../components/heavy-computed/NonOpti.vue'
+import Opti from '../components/heavy-computed/Opti.vue'
 
 export default {
     components: { NonOpti, RadioGroup, Opti },
     setup() {
         const items = Array(1000)
             .fill(null)
-            .map((_, i) => `${i % 3}`);
+            .map((_, i) => `${i % 3}`)
+
+        let timerStart = ref(new Date())
+
+        let timeElapsed = ref(0)
+
+        function updateTimer(end) {
+            timeElapsed.value = end.getTime() - timerStart.value.getTime()
+        }
+
         return {
+            timeElapsed,
+            updateTimer,
+            timerStart,
             items,
-            selectedProp: ref("name"),
-        };
+            selectedProp: ref('name'),
+        }
     },
-};
+}
 </script>
