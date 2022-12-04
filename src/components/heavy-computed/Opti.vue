@@ -5,12 +5,13 @@
 <script>
 import { onUpdated, toRef } from 'vue'
 import { useConfigurationByPropOpti } from './store.js'
+import benchmark from '../../uses/benchmark'
 
 export default {
     props: { id: { type: String }, prop: { type: String } },
-    emits: ['updated'],
-    setup(props, ctx) {
-        onUpdated(() => ctx.emit('updated', new Date()))
+    setup(props) {
+        const { setEnd } = benchmark()
+        onUpdated(() => setEnd())
 
         return {
             value: useConfigurationByPropOpti(props.id, toRef(props, 'prop')),
