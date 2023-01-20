@@ -1,5 +1,5 @@
 <template>
-    <BaseDemo title="Heavy Computed">
+    <BaseDemo title="Shared Effect">
         <template #description>
             <p>
                 When a computed or any other effects are costly to create or recalculate, but are use by several
@@ -24,20 +24,14 @@
                 v-model="selectedProp"
                 :options="[
                     { label: 'Name', value: 'name' },
-                    { label: 'Color', value: 'color' },
+                    { label: 'Job', value: 'job' },
                 ]"
             ></RadioGroup>
-            <ul class="grid grid-cols-3 gap-2 overflow-auto max-h-[300px] mt-4 nice-scroll">
-                <li
-                    class="p-2 bg-gray-800 rounded"
-                    v-for="(id, index) in items"
-                    :key="index"
-                    :prop="selectedProp"
-                    :id="id"
-                >
-                    <Opti v-if="isOptimized" :prop="selectedProp" :id="id"></Opti>
-                    <NonOpti v-else :prop="selectedProp" :id="id"></NonOpti>
-                </li>
+            <ul v-if="isOptimized" class="grid grid-cols-3 gap-2 overflow-auto max-h-[300px] mt-4 nice-scroll">
+                <ItemOpti v-for="id in ids" :key="id" :selectedProp="selectedProp" :id="id"></ItemOpti>
+            </ul>
+            <ul v-else class="grid grid-cols-3 gap-2 overflow-auto max-h-[300px] mt-4 nice-scroll">
+                <Item v-for="id in ids" :key="id" :selectedProp="selectedProp" :id="id"></Item>
             </ul>
         </template>
     </BaseDemo>
@@ -45,19 +39,18 @@
 
 <script>
 import { ref } from "vue";
-import RadioGroup from "../components/common/RadioGroup.vue";
-import NonOpti from "../components/heavy-computed/NonOpti.vue";
-import Opti from "../components/heavy-computed/Opti.vue";
+import shuffle from "lodash.shuffle";
+import RadioGroup from "/src/components/common/RadioGroup.vue";
+import Item from "/src/components/shared-effect/Item.vue";
+import ItemOpti from "/src/components/shared-effect/ItemOpti.vue";
+import persons from "/src/assets/persons.json";
 
 export default {
-    components: { NonOpti, RadioGroup, Opti },
+    components: { Item, ItemOpti, RadioGroup },
     setup() {
-        const items = Array(1000)
-            .fill(null)
-            .map((_, i) => `${i % 3}`);
         return {
-            items,
             selectedProp: ref("name"),
+            ids: [...shuffle(persons.map((person) => person.id))],
         };
     },
 };

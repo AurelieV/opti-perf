@@ -8,6 +8,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "lodash.shuffle": "^4.2.0",
     "vue": "^3.2.45",
     "vue-router": "^4.1.6"
   },
