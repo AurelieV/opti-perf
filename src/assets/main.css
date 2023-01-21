@@ -20,13 +20,17 @@ body {
     }
 }
 
+.link,
 .externalLink {
     color: theme(colors.orange.500);
     font-weight: bold;
-    &:before {
-        content: "#";
-    }
     &:hover {
         text-decoration: underline;
+    }
+}
+
+.externalLink {
+    &:before {
+        content: "#";
     }
 }

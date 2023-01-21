@@ -1,7 +1,11 @@
 <template>
     <article>
         <header class="border-b-2 border-gray-700">
-            <h1 class="text-lg">{{ title }}</h1>
+            <div class="flex items-baseline mb-1">
+                <h1 class="text-xl">{{ title }}</h1>
+                <a class="ml-3 link" href="github">(Github Link)</a>
+            </div>
+
             <div class="flex items-center cursor-pointer text-md" @click="isDescriptionOpen = !isDescriptionOpen">
                 <h2>Description</h2>
                 <Icon

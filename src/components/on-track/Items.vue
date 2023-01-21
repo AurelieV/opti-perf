@@ -1,5 +1,5 @@
 <template>
-    <div class="max-w-full">
+    <div class="max-w-sm mx-auto">
         <div class="grid grid-cols-2 mb-3">
             <button
                 class="hover:text-orange-500 active:text-orange-800 disabled:text-gray-800"
