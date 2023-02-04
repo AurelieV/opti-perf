@@ -19,7 +19,7 @@
         </p>
         <p class="mt-2">
             Want to stay in touch? Feel free to contact me on
-            <a class="externalLink" href="https://twitter.com/purple-orwel">Twitter</a>
+            <a class="externalLink" href="https://twitter.com/purple_orwel">Twitter</a>
         </p>
     </footer>
 </template>
