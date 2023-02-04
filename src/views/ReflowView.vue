@@ -1,7 +1,9 @@
 <template>
-    <BaseDemo title="Reflow">
+    <BaseDemo title="Reflow" link="https://github.com/AurelieV/opti-perf/blob/main/src/views/ReflowView.vue">
         <template #description>
-            <p>TODO</p>
+            <p>Each time you select an item (by clicking on it), a div is following this div width and height</p>
+            <p>This is often use for absolute positioned menu</p>
+            <p>Depending on your computer, the non optimized version should feel laggy (scrolling and selected)</p>
         </template>
         <template #default="{ isOptimized }">
             <RadioGroup :options="options" v-model="width" class="mb-8"></RadioGroup>

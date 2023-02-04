@@ -3,7 +3,7 @@
         <header class="border-b-2 border-gray-700">
             <div class="flex items-baseline mb-1">
                 <h1 class="text-xl">{{ title }}</h1>
-                <a class="ml-3 link" href="github">(Github Link)</a>
+                <a class="ml-3 link" :href="link">(Github Link)</a>
             </div>
 
             <div class="flex items-center cursor-pointer text-md" @click="isDescriptionOpen = !isDescriptionOpen">
@@ -40,7 +40,7 @@ import ExpandTransition from "./ExpandTransition.vue";
 
 export default {
     components: { ExpandTransition },
-    props: { title: { type: String, required: true } },
+    props: { title: { type: String, required: true }, link: { type: String, required: true } },
     expose: ["isOptimized"],
     data() {
         return {

@@ -1,7 +1,9 @@
 <template>
-    <BaseDemo title="Vue memo">
+    <BaseDemo title="Vue memo" link="https://github.com/AurelieV/opti-perf/blob/main/src/views/VueMemoView.vue">
         <template #description>
-            <p>TODO</p>
+            <p>Each time a component is rerendered its color will changed</p>
+            <p>By clicking an item you can select it. In the optimized version this cause each element to rerender. On the optimized version only the item newly selected and previously selected change</p>
+            <p>You can find the document of v-memo on the <a class="externalLink" href="https://vuejs.org/api/built-in-directives.html#v-memo">Vue official documentation</a></p>
         </template>
         <template #default="{ isOptimized }">
             <ul class="grid grid-cols-4 gap-3" v-if="!isOptimized">
@@ -35,7 +37,7 @@ import { useVisualRerender } from "/src/components/common/useVisualRerender.js";
 
 export default {
     setup() {
-        const { getBackgroundColor } = useVisualRerender();
+        const { getBackgroundColor } = useVisualRerender(true);
 
         return { getBackgroundColor, selectedId: ref(1), list: [1, 2, 3, 4, 5, 6, 7, 8] };
     },

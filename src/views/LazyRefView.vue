@@ -1,7 +1,8 @@
 <template>
-    <BaseDemo title="Lazy Ref">
+    <BaseDemo title="Lazy Ref" link="https://github.com/AurelieV/opti-perf/blob/main/src/views/LazyRefView.vue">
         <template #description>
-            <p>TODO</p>
+            <p>Each time a component is rerendered its color will changed</p>
+            <p>By clicking an item you can select it. In the optimized version this cause each element to rerender. On the optimized version only the item newly selected and previously selected change</p>
         </template>
         <template #default="{ isOptimized }">
             <ul class="grid grid-cols-4 gap-3" v-if="!isOptimized">

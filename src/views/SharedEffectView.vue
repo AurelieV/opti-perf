@@ -1,6 +1,14 @@
 <template>
-    <BaseDemo title="Shared Effect">
+    <BaseDemo
+        title="Shared Effect"
+        link="https://github.com/AurelieV/opti-perf/blob/main/src/views/SharedEffectView.vue"
+    >
         <template #description>
+            <p>
+                Each component is depending on a computed which is arbitrary slow. When using the switch, this computed
+                is recompute. In the non optimized version we can feel the application is laggy. This lag dissappears in
+                the optimized version when this computed is shared.
+            </p>
             <p>
                 When a computed or any other effects are costly to create or recalculate, but are use by several
                 components, it can be usefull to share it between them
@@ -12,12 +20,6 @@
                 is very usefull to create all the needed effects only when needed, and then release it when not needed
                 anymore (important for memory leak !)
             </p>
-            <p>
-                Here we have a bunch of elements, with some of them having the same configuration id. The computed to
-                get the value of the key is arbitrary slow. When changing the prop display, in the non optimized version
-                we can feel the application is laggy. This lag dissappears in the optimized version which use common ref
-            </p>
-            <p>You can find the code to this demo <a class="externalLink" href="">here</a></p>
         </template>
         <template #default="{ isOptimized }">
             <RadioGroup

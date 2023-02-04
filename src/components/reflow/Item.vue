@@ -1,11 +1,10 @@
 <template>
     <div
         ref="el"
-        v-bind="$attrs"
         class="box-border h-[100px] grid grid-cols-2 overflow-hidden bg-gray-700 rounded"
         :class="{ border: isSelected }"
     >
-        <div v-for="i in 500" :key="i" class="flex items-center justify-center p-3">{{ i }}</div>
+        <div v-for="i in 50" :key="i" class="flex items-center justify-center p-3">{{ i }}</div>
     </div>
 </template>
 

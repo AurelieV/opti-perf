@@ -10,6 +10,18 @@
             </li>
         </ul>
     </nav>
+    <footer class="mx-auto mt-8 text-center">
+        <p>
+            Curious about Weweb? You can try the editor <a href="https://www.weweb.io/" class="externalLink">here</a>,
+            are even maybe develop component for it! (<a class="externalLink" href="https://github.com/weweb-assets"
+                >Component examples</a
+            >)
+        </p>
+        <p class="mt-2">
+            Want to stay in touch? Feel free to contact me on
+            <a class="externalLink" href="https://twitter.com/purple-orwel">Twitter</a>
+        </p>
+    </footer>
 </template>
 
 <script>
@@ -21,31 +33,31 @@ export default {
                     title: "Reflow",
                     to: "reflow",
                     description:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit tincidunt ligula. Proin consectetur tortor tincidunt risus suscipit ornare. Proin nec porttitor sapien. Suspendisse potenti. Morbi feugiat hendrerit lorem, id cursus augue feugiat nec.",
+                        "A demonstration about how some methods can cause Reflow and a feeling of lag, and how to avoid it",
                 },
                 {
                     title: "On Track",
                     to: "on-track",
                     description:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit tincidunt ligula. Proin consectetur tortor tincidunt risus suscipit ornare. Proin nec porttitor sapien. Suspendisse potenti. Morbi feugiat hendrerit lorem, id cursus augue feugiat nec.",
+                        "A demonstration about how onTrack method can be usefull to find what is causing a component reredering",
                 },
                 {
                     title: "Vue memo",
                     to: "vue-memo",
                     description:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit tincidunt ligula. Proin consectetur tortor tincidunt risus suscipit ornare. Proin nec porttitor sapien. Suspendisse potenti. Morbi feugiat hendrerit lorem, id cursus augue feugiat nec.",
+                        "A demonstration about the v-memo directive, and how it can help you not rerender unchanged component",
                 },
                 {
                     title: "Lazy ref",
                     to: "lazy-ref",
                     description:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit tincidunt ligula. Proin consectetur tortor tincidunt risus suscipit ornare. Proin nec porttitor sapien. Suspendisse potenti. Morbi feugiat hendrerit lorem, id cursus augue feugiat nec.",
+                        'A demonstration of a usefull pattern to not trigger computed dependencies for nothing (make them "lazy")',
                 },
                 {
                     title: "Shared effect",
                     to: "shared-effect",
                     description:
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam blandit tincidunt ligula. Proin consectetur tortor tincidunt risus suscipit ornare. Proin nec porttitor sapien. Suspendisse potenti. Morbi feugiat hendrerit lorem, id cursus augue feugiat nec.",
+                        "A demonstration of how share different effects (computed, watch, etc) between several components. Usefull when some of them are heavy to compute",
                 },
             ],
         };

@@ -1,10 +1,14 @@
 <template>
-    <BaseDemo title="On Track">
+    <BaseDemo title="On Track" link="https://github.com/AurelieV/opti-perf/blob/main/src/views/OnTrackView.vue">
         <template #description>
-            <p>TODO</p>
+            <p>Each time the color of a div change, it means the component has rerendered</p>
+            <p>Use the Next and Previous buttons to change the items display on each row</p>
+            <p>On the non optimized version, changing one row will also trigger the second one. On the optimized version, each row can change without affecting the other</p>
+            <p>If you run it on dev mode, you can see what information the onTrack methods gives you</p>
+            <p>You can find info about tracking methods in <a class="externalLink" href="https://vuejs.org/guide/extras/reactivity-in-depth.html#component-debugging-hooks">the official Vue Documentation</a></p>
         </template>
         <template #default="{ isOptimized }">
-            <div class="mb-2">Dependencies:</div>
+            <div class="mb-2">Dependencies: (only on dev mode)</div>
             <ul class="flex flex-wrap gap-2" v-if="isOptimized">
                 <li class="p-2 border border-gray-700 rounded" v-for="(item, index) in optimizedTrack" :key="index">
                     {{ item.type }}: {{ item.key }}
