@@ -10,6 +10,11 @@ const router = createRouter({
             component: HomeView,
         },
         {
+            path: "/reflow",
+            name: "reflow",
+            component: () => import("../views/ReflowView.vue"),
+        },
+        {
             path: "/on-track",
             name: "on-track",
             component: () => import("../views/OnTrackView.vue"),
