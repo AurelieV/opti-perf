@@ -1,5 +1,8 @@
 <template>
-    <BaseDemo title="Activable Effect">
+    <BaseDemo
+        title="Activable Effect"
+        link="https://github.com/AurelieV/opti-perf/blob/main/src/views/ActivableEffectView.vue"
+    >
         <template #description>
             <p>
                 Sometime a computed or any other effects are costly to recalculate, but needed only when a condition is
