@@ -59,6 +59,12 @@ export default {
                     description:
                         "A demonstration of how share different effects (computed, watch, etc) between several components. Usefull when some of them are heavy to compute",
                 },
+                {
+                    title: "Activable effect",
+                    to: "activable-effect",
+                    description:
+                        "A demonstration of how effects (computed, watch, etc) between several components can be stop and start on demand, to avoid computation and watcher when not needed",
+                },
             ],
         };
     },

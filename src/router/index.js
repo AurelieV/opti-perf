@@ -34,6 +34,11 @@ const router = createRouter({
             name: "shared-effect",
             component: () => import("../views/SharedEffectView.vue"),
         },
+        {
+            path: "/activable-effect",
+            name: "activable-effect",
+            component: () => import("../views/ActivableEffectView.vue"),
+        },
     ],
 });
 
