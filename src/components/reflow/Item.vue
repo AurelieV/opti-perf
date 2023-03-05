@@ -1,6 +1,7 @@
 <template>
     <div
         ref="el"
+        v-bind="$attrs"
         class="box-border h-[100px] grid grid-cols-2 overflow-hidden bg-gray-700 rounded"
         :class="{ border: isSelected }"
     >
