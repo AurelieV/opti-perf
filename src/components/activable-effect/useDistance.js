@@ -1,4 +1,4 @@
-import { watch, onScopeDispose } from "vue";
+import { watch, onScopeDispose, effectScope } from "vue";
 import { store } from "./store";
 
 import { ref } from "vue";
@@ -21,7 +21,7 @@ export function useDistanceOpti(id, isActive) {
 
     let scope;
     function dispose() {
-        scope && advancedScope.stop();
+        scope && scope.stop();
     }
 
     watch(isActive, (isActive) => {
