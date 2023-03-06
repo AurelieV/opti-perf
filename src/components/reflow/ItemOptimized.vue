@@ -1,7 +1,6 @@
 <template>
     <div
         ref="el"
-        v-bind="$attrs"
         class="box-border h-[100px] grid grid-cols-2 overflow-hidden bg-gray-700 rounded"
         :class="{ border: isSelected }"
     >
@@ -12,7 +11,6 @@
 <script>
 import { ref } from "vue";
 export default {
-    inheritAttrs: false,
     props: { isSelected: { type: Boolean, default: false } },
     emits: ["update:positionStyle"],
     setup() {

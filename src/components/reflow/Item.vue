@@ -11,7 +11,6 @@
 <script>
 import { ref } from "vue";
 export default {
-    inheritAttrs: false,
     props: { isSelected: { type: Boolean, default: false } },
     emits: ["update:positionStyle"],
     setup() {
